@@ -5,7 +5,7 @@
 package com.juc.chapter01;
 
 /**
- * ThreadBaseDemo
+ * 线程启动 demo
  *
  * @author feixuanyu
  * @version 1.0.0
@@ -14,6 +14,7 @@ package com.juc.chapter01;
 public class ThreadBaseDemo {
 
     public static void main(String[] args) {
+
         Thread t1 = new Thread(() -> {
         }, "t1");
 
