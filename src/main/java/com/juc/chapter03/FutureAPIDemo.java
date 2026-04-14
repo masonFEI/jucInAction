@@ -35,7 +35,22 @@ public class FutureAPIDemo {
 
         System.out.println(Thread.currentThread().getName() + "\t ----- 忙其他任务了");
 
-        System.out.println(futureTask.get(3, TimeUnit.SECONDS));
+//        System.out.println(futureTask.get(3, TimeUnit.SECONDS));
+
+        while (true) {
+            if (futureTask.isDone()) {
+                System.out.println(futureTask.get());
+                break;
+            } else {
+                try {
+                    TimeUnit.MILLISECONDS.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("正在处理中");
+            }
+        }
+
     }
 
     /**
