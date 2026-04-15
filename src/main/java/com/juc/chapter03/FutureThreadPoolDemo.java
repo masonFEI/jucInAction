@@ -18,7 +18,6 @@ public class FutureThreadPoolDemo {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         // 3个任务，目前开启多个异步任务线程来处理，请问耗时多少？
-
         long startTime = System.currentTimeMillis();
         ExecutorService threadPool = Executors.newFixedThreadPool(3);
 
