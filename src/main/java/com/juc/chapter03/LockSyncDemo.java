@@ -4,6 +4,12 @@
  */
 package com.juc.chapter03;
 
+
+class Book extends Object {
+
+}
+
+
 /**
  * LockSyncDemo
  *
@@ -13,7 +19,7 @@ package com.juc.chapter03;
  */
 public class LockSyncDemo {
 
-    Object object = new Object();
+    final Object object = new Object();
 
     public void m1() {
         synchronized (object) {
