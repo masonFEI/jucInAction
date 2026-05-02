@@ -4,6 +4,9 @@
  */
 package com.juc.chapter03;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * ReEntryLockDemo
  *
@@ -12,6 +15,10 @@ package com.juc.chapter03;
  * @since 2026-05-01 23:18
  */
 public class ReEntryLockDemo {
+
+
+    static Lock lock = new ReentrantLock();
+
 
     /**
      * 可重入锁-同步方法
@@ -34,10 +41,25 @@ public class ReEntryLockDemo {
     }
 
     public static void main(String[] args) {
-        ReEntryLockDemo reEntryLockDemo = new ReEntryLockDemo();
+//        ReEntryLockDemo reEntryLockDemo = new ReEntryLockDemo();
+//
+//        new Thread(() -> {
+//            reEntryLockDemo.m1();
+//        }, "t1").start();
 
         new Thread(() -> {
-            reEntryLockDemo.m1();
+            lock.lock();
+            try {
+                System.out.println(Thread.currentThread().getName() + "\t ---come in");
+                lock.lock();
+                try {
+                    System.out.println(Thread.currentThread().getName() + "\t ---come in");
+                } finally {
+                    lock.unlock();
+                }
+            } finally {
+                lock.unlock();
+            }
         }, "t1").start();
 
     }
