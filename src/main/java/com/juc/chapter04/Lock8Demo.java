@@ -2,7 +2,7 @@
  * LY.com Inc.
  * Copyright (c) 2004-2026 All Rights Reserved.
  */
-package com.juc.chapter03;
+package com.juc.chapter04;
 
 import java.util.concurrent.TimeUnit;
 
