@@ -7,14 +7,13 @@ package com.juc.chapter02;
 import java.util.concurrent.TimeUnit;
 
 /**
- * DaemonDemo
+ * 守护线程
  *
  * @author feixuanyu
  * @version 1.0.0
  * @since 2026-04-09 22:20
  */
 public class DaemonDemo {
-
 
     public static void main(String[] args) {
         Thread t1 = new Thread(() -> {
@@ -27,7 +26,8 @@ public class DaemonDemo {
 
         }, "t1");
 
-//        t1.setDaemon(true); 必须在start()之前设置，否则报错：java.lang.IllegalThreadStateException
+        //  必须在start()之前设置，否则报错：java.lang.IllegalThreadStateException
+        t1.setDaemon(true);
         t1.start();
 //        t1.setDaemon(true);
 
