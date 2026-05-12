@@ -31,11 +31,17 @@ public class ReEntryLockDemo {
         System.out.println(Thread.currentThread().getName() + "\t ---- end");
     }
 
+    /**
+     * 可重入锁-同步方法
+     */
     public synchronized void m2() {
         System.out.println(Thread.currentThread().getName() + "\t ---- m2 come in");
         m3();
     }
 
+    /**
+     * 可重入锁-同步方法
+     */
     public synchronized void m3() {
         System.out.println(Thread.currentThread().getName() + "\t ---- m3 come in");
     }
