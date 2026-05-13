@@ -15,7 +15,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class InterruptDemo2 {
 
-
     public static void main(String[] args) {
         // 实例方法interrupt() 仅仅是设置线程的中断状态位为true，不会停止线程
         Thread t1 = new Thread(() -> {
@@ -33,7 +32,7 @@ public class InterruptDemo2 {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        t1.interrupt();//true
+        t1.interrupt();// true
 
         System.out.println("t1线程调用interrupt后的中断标识01：" + t1.isInterrupted());
 

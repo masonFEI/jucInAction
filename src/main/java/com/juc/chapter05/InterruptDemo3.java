@@ -31,13 +31,12 @@ public class InterruptDemo3 {
                     e.printStackTrace();
                 }
 
-                // 无线循环
+                // 无限循环
                 System.out.println("---- hello InterruptDemo3");
             }
 
         }, "t1");
         t1.start();
-
 
         try {
             TimeUnit.SECONDS.sleep(1);
@@ -55,7 +54,6 @@ public class InterruptDemo3 {
  * 1.中断标志位，默认false
  * 2.t2->t1 发出了中断协商，t2调用t1.interrupt,中断标志位true
  * 3.中断标志位true,正常情况，程序停止
- * 4.中断标志位true,异常情况，InterruptedException,中断状态将会被清除，并且将收到InterruptedException
- *      导致无限循环
+ * 4.中断标志位true,异常情况，InterruptedException,中断状态将会被清除，并且将收到InterruptedException,导致无限循环
  * 5.在catch块中，需要再次给中断标志位设置为true,2次调用停止程序才ok
  */

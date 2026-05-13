@@ -18,8 +18,11 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class LockSupportDemo {
 
-
     public static void main(String[] args) {
+
+    }
+
+    private static void syncParkUnpark() {
         Thread t1 = new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + "\t---come in");
             LockSupport.park();
@@ -33,14 +36,11 @@ public class LockSupportDemo {
             throw new RuntimeException(e);
         }
 
-
         new Thread(() -> {
             LockSupport.unpark(t1);
             System.out.println(Thread.currentThread().getName() + "\t---发出通知");
         }, "t2").start();
-
     }
-
 
     private static void syncAwaitSignal() {
         ReentrantLock lock = new ReentrantLock();
@@ -77,7 +77,6 @@ public class LockSupportDemo {
         }, "t2").start();
     }
 
-
     private static void syncWaitNotify() {
         Object objectLock = new Object();// 同一把锁，类似同一个资源
 
@@ -102,11 +101,11 @@ public class LockSupportDemo {
             }
         }, "t1").start();
 
-//        try {
-//            TimeUnit.SECONDS.sleep(1);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
+        // try {
+        // TimeUnit.SECONDS.sleep(1);
+        // } catch (InterruptedException e) {
+        // throw new RuntimeException(e);
+        // }
 
         new Thread(() -> {
             synchronized (objectLock) {

@@ -6,10 +6,9 @@ package com.juc.chapter05;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * InterruptDemo
+ * 如何中断运行中的线程
  *
  * @author feixuanyu
  * @version 1.0.0
@@ -17,11 +16,17 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class InterruptDemo {
 
-    static volatile boolean isStop = false;
-    static AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+    static volatile boolean isStop        = false;
+    static AtomicBoolean    atomicBoolean = new AtomicBoolean(false);
 
     public static void main(String[] args) {
 
+    }
+
+    /**
+     * 通过Thread类自带的中断api实例方法实现线程间的通信，t1线程不断的读取isInterrupted方法，当t2线程调用t1线程的interrupt方法时，t1线程感知到这个变化，程序停止
+     */
+    private void apiDemo() {
         Thread t1 = new Thread(() -> {
             while (true) {
                 if (Thread.currentThread().isInterrupted()) {
@@ -46,11 +51,13 @@ public class InterruptDemo {
         }, "t2").start();
 
         // 也可以t1自己设置
-//        t1.interrupt();
+        // t1.interrupt();
     }
 
-
-    private void atomicBoolean() {
+    /**
+     * 通过AtomicBoolean实现线程间的通信，t1线程不断的读取atomicBoolean变量，当t2线程修改atomicBoolean变量时，t1线程感知到这个变化，程序停止
+     */
+    private void atomicBooleanDemo() {
         new Thread(() -> {
             while (true) {
                 if (atomicBoolean.get()) {
@@ -72,6 +79,9 @@ public class InterruptDemo {
         }, "t2").start();
     }
 
+    /**
+     * 通过一个volatile变量实现线程间的通信，t1线程不断的读取isStop变量，当t2线程修改isStop变量时，t1线程感知到这个变化，程序停止
+     */
     private void volatileDemo() {
         new Thread(() -> {
             while (true) {
@@ -93,6 +103,5 @@ public class InterruptDemo {
             isStop = true;
         }, "t2").start();
     }
-
 
 }

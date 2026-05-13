@@ -19,12 +19,10 @@ public class InterruptDemo4 {
         System.out.println(Thread.currentThread().getName() + "\t" + Thread.interrupted());
         System.out.println(Thread.currentThread().getName() + "\t" + Thread.interrupted());
         System.out.println("----1");
-        Thread.currentThread().interrupt();//中断标志位设置为true
+        Thread.currentThread().interrupt();// 中断标志位设置为true
         System.out.println("----2");
         System.out.println(Thread.currentThread().getName() + "\t" + Thread.interrupted());
         System.out.println(Thread.currentThread().getName() + "\t" + Thread.interrupted());
-
-
 
         Thread.interrupted();// 静态方法,入参ClearInterrupted(是否重置中断标识)为true
         Thread.currentThread().isInterrupted();// 实例方法
