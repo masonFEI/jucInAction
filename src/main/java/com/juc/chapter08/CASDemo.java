@@ -21,6 +21,10 @@ public class CASDemo {
         System.out.println(atomicInteger.compareAndSet(5, 2026) + "\t" + atomicInteger.get());
         System.out.println(atomicInteger.compareAndSet(5, 2026) + "\t" + atomicInteger.get());
 
+        atomicInteger.getAndIncrement();
+
+        // AtomicInteger 中的value 是 volatile修饰的
+
     }
 
 }
