@@ -25,12 +25,11 @@ class User {
 
     private String userName;
 
-    private int age;
+    private int    age;
 
 }
 
 public class AtomicReferenceDemo {
-
 
     public static void main(String[] args) {
         AtomicReference<User> atomicReference = new AtomicReference<>();

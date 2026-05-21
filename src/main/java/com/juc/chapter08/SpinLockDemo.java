@@ -8,9 +8,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- *  题目：实现一个自旋锁，复习CAS思想
- *  自旋锁好处：循环比较获取没有类似wait的阻塞
- * 
+ * 题目：实现一个自旋锁，复习CAS思想
+ * 自旋锁好处：循环比较获取没有类似wait的阻塞
+ *
  * @author feixuanyu
  * @version 1.0.0
  * @since 2026-05-20 22:20

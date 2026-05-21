@@ -17,11 +17,23 @@ import java.util.concurrent.atomic.AtomicStampedReference;
  */
 public class ABADemo {
 
+    /** AtomicInteger的value已经是volatile的了 */
     static AtomicInteger                   atomicInteger    = new AtomicInteger(100);
 
     static AtomicStampedReference<Integer> stampedReference = new AtomicStampedReference<>(100, 1);
 
     public static void main(String[] args) {
+
+        // abaHappen();
+
+        abaResolve();
+
+    }
+
+    /**
+     * 解决aba问题
+     */
+    private static void abaResolve() {
         new Thread(() -> {
             int stamp = stampedReference.getStamp();
 
@@ -57,9 +69,11 @@ public class ABADemo {
             boolean b = stampedReference.compareAndSet(100, 2022, stamp, stamp + 1);
             System.out.println(b + "\t" + stampedReference.getStamp() + "\t" + stampedReference.getReference());
         }, "t4").start();
-
     }
 
+    /**
+     * aba问题 发生
+     */
     private static void abaHappen() {
         new Thread(() -> {
             atomicInteger.compareAndSet(100, 101);
