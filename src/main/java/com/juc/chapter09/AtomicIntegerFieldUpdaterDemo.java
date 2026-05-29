@@ -15,7 +15,8 @@ import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
  * @since 2026-05-23 22:13
  */
 
-class BankAccount {// 资源类
+class BankAccount {
+    // 资源类
     String              bankName = "CCB";
 
     // 1.更新的对象属性必需使用public volatile修饰符
@@ -27,7 +28,7 @@ class BankAccount {// 资源类
 
     // 2.因为对象的属性修改类型原子类都是抽象类，所以每次使用都必须
     // 使用静态方法newUpdater()创建一个更新器，并且需要设置想要更新的类和属性
-    AtomicIntegerFieldUpdater<BankAccount> fieldUpdater = AtomicIntegerFieldUpdater.newUpdater(BankAccount.class, "money");
+    static final AtomicIntegerFieldUpdater<BankAccount> fieldUpdater = AtomicIntegerFieldUpdater.newUpdater(BankAccount.class, "money");
 
     // 不加synchronized，保证高性能原子性，局部微创小手术
     public void transMoney(BankAccount bankAccount) {
@@ -47,6 +48,8 @@ public class AtomicIntegerFieldUpdaterDemo {
 
     public static void main(String[] args) throws InterruptedException {
         BankAccount bankAccount = new BankAccount();
+
+        // 线程的计数器，完成一个减一个
         CountDownLatch countDownLatch = new CountDownLatch(10);
 
         for (int i = 0; i < 10; i++) {

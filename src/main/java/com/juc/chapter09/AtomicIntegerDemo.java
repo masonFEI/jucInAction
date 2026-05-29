@@ -32,11 +32,11 @@ public class AtomicIntegerDemo {
         MyNumber myNumber = new MyNumber();
 
         // 50个线程
+        // 创建一个倒计时门闩，每个线程执行完了-1，总数为0时，表示多线程都执行完了
         CountDownLatch countDownLatch = new CountDownLatch(SIZE);
 
         for (int i = 0; i < SIZE; i++) {
             new Thread(() -> {
-
                 try {
                     for (int j = 0; j < 1000; j++) {
                         myNumber.addPlusPlus();
@@ -44,7 +44,6 @@ public class AtomicIntegerDemo {
                 } finally {
                     countDownLatch.countDown();
                 }
-
             }, String.valueOf(i)).start();
         }
 
