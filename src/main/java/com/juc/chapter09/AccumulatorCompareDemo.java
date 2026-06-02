@@ -4,7 +4,6 @@
  */
 package com.juc.chapter09;
 
-import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.LongAccumulator;
@@ -122,10 +121,6 @@ public class AccumulatorCompareDemo {
         countDownLatch4.await();
         endTime = System.currentTimeMillis();
         System.out.println("---costTime:" + (endTime - startTime) + " ms" + "\t clickByLongAccumulator:" + clickNumber.longAccumulator.get());
-
-
-        new HashMap<>().put(1,1);
-
     }
 
 }
