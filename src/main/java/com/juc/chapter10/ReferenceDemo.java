@@ -24,6 +24,14 @@ class MyObject {
 public class ReferenceDemo {
 
     public static void main(String[] args) {
+        MyObject myObject = new MyObject();
+
+        System.out.println("gc before" + myObject);
+
+        myObject = null;
+
+        System.gc();// 人工开启gc，一般不用
+        System.out.println("gc after" + myObject);
 
     }
 
