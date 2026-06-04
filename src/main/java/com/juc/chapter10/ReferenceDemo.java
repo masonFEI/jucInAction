@@ -4,6 +4,10 @@
  */
 package com.juc.chapter10;
 
+import java.lang.ref.SoftReference;
+import java.lang.ref.WeakReference;
+import java.util.concurrent.TimeUnit;
+
 /**
  * ReferenceDemo
  *
@@ -24,6 +28,34 @@ class MyObject {
 public class ReferenceDemo {
 
     public static void main(String[] args) {
+        WeakReference<MyObject> weakReference = new WeakReference<>(new MyObject());
+        System.out.println("--------------gc before 内存够用: " + weakReference.get());
+        System.gc();
+
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println("gc after 内存够用" + weakReference.get());
+    }
+
+    private static void softReference() {
+        SoftReference<MyObject> softReference = new SoftReference<>(new MyObject());
+        System.out.println("--------------softReference: " + softReference.get());
+        System.gc();
+
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println("gc after 内存够用" + softReference.get());
+    }
+
+    private static void strongReference() {
         MyObject myObject = new MyObject();
 
         System.out.println("gc before" + myObject);
@@ -32,7 +64,6 @@ public class ReferenceDemo {
 
         System.gc();// 人工开启gc，一般不用
         System.out.println("gc after" + myObject);
-
     }
 
 }
