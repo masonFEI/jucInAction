@@ -1,0 +1,16 @@
+src/main/java/com/juc/chapter11/SaleTicketDemo.java
+  h_996c2add31e3eb 1-57
+笔记.md
+  h_996c2add31e3eb 505-516
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.1",
+  "base_commit_sha": "e203cd620026323f63499144b0eba917fbf2c582",
+  "prompts": {},
+  "humans": {
+    "h_996c2add31e3eb": {
+      "author": "feixuanyu <johnny.fei@ly.com>"
+    }
+  }
+}
