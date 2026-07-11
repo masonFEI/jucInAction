@@ -16,16 +16,30 @@ import org.openjdk.jol.info.ClassLayout;
 public class SynchronizedUpDemo {
 
     public static void main(String[] args) {
-        // biased lock
-        // -XX:+UseBiasedLocking (开启偏向锁)
         // -XX:-UseBiasedLocking (关闭偏向锁)
-        // -XX:BiasedLockingStartupDelay=0  （关闭延迟，演示偏向锁时需要开启）
         Object o = new Object();
         synchronized (o) {
             System.out.println(ClassLayout.parseInstance(o).toPrintable());
         }
     }
 
+    /**
+     * 偏向锁
+     */
+    private static void biasedLock() {
+        // biased lock
+        // -XX:+UseBiasedLocking (开启偏向锁)
+        // -XX:-UseBiasedLocking (关闭偏向锁)
+        // -XX:BiasedLockingStartupDelay=0 （关闭延迟，演示偏向锁时需要开启）
+        Object o = new Object();
+        synchronized (o) {
+            System.out.println(ClassLayout.parseInstance(o).toPrintable());
+        }
+    }
+
+    /**
+     * 无锁
+     */
     private static void noLock() {
         // 无锁（001）(value编码倒着看)
         Object o = new Object();
