@@ -6,6 +6,8 @@ package com.juc.chapter11;
 
 import org.openjdk.jol.info.ClassLayout;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * 锁升级demo
  *
@@ -16,6 +18,31 @@ import org.openjdk.jol.info.ClassLayout;
 public class SynchronizedUpDemo {
 
     public static void main(String[] args) {
+
+        // 先睡眠5秒，保证开启偏向锁
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        Object o = new Object();
+        System.out.println("本应是偏向锁");
+        System.out.println(ClassLayout.parseInstance(o).toPrintable());
+
+        o.hashCode();// 没有重写，一致性哈希，重写后无效；当一个对象计算过hash code,它就无法进入偏向锁状态
+
+        synchronized (o) {
+            System.out.println("本应是偏向锁，但是由于计算过一致性哈希，会直接升级为轻量级锁");
+            System.out.println(ClassLayout.parseInstance(o).toPrintable());
+        }
+
+    }
+
+    /**
+     * 轻量级锁
+     */
+    private static void thinLock() {
         // -XX:-UseBiasedLocking (关闭偏向锁)
         Object o = new Object();
         synchronized (o) {
