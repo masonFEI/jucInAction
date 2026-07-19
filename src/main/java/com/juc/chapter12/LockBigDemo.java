@@ -2,7 +2,7 @@
  * LY.com Inc.
  * Copyright (c) 2004-2026 All Rights Reserved.
  */
-package com.juc.chapter11;
+package com.juc.chapter12;
 
 /**
  * LockBigDemo

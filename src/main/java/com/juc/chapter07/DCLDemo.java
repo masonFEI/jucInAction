@@ -13,10 +13,8 @@ package com.juc.chapter07;
  */
 public class DCLDemo {
 
-
     // 通过volatile声明，实现线程安全的延迟初始化
     private volatile static DCLDemo instance;
-
 
     /**
      *
@@ -24,6 +22,7 @@ public class DCLDemo {
      * 1.分配内存
      * 2.初始化对象
      * 3.赋值给 instance
+     * 
      * JIT/CPU 可能重排为 1→3→2：
      * 线程 1 执行 1、3 后，线程 2 发现 instance != null，直接返回未初始化完成的对象，导致崩溃。
      * <p>
@@ -31,7 +30,6 @@ public class DCLDemo {
      *
      * @return
      */
-
     public static DCLDemo getInstance() {
         if (instance == null) {
             synchronized (DCLDemo.class) {
@@ -44,10 +42,8 @@ public class DCLDemo {
         return instance;
     }
 
-
     public static void main(String[] args) {
 
     }
-
 
 }
