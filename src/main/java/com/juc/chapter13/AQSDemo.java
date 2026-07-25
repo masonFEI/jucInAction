@@ -39,6 +39,7 @@ public class AQSDemo {
         }, "A").start();
 
         // B是第2个顾客，B一看到受理窗口被A占用，只能去候客区等待，进入AQS队列，等待着A办理完成，尝试去抢占受理窗口
+        // B进入队列后，通过java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt，B线程在此阻塞
         new Thread(() -> {
             reentrantLock.lock();
             try {
@@ -67,7 +68,6 @@ public class AQSDemo {
                 reentrantLock.unlock();
             }
         }, "D").start();
-
 
     }
 
