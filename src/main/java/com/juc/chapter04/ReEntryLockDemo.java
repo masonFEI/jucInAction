@@ -53,6 +53,7 @@ public class ReEntryLockDemo {
 //            reEntryLockDemo.m1();
 //        }, "t1").start();
 
+        // 多少个lock,就需要多少个unlock，不然线程就会被一直锁着
         new Thread(() -> {
             lock.lock();
             try {
