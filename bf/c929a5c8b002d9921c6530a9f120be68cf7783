@@ -1,0 +1,14 @@
+src/main/java/com/juc/chapter13/StampedLockDemo.java
+  h_e501752fc60351 11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "bfc929a5c8b002d9921c6530a9f120be68cf7783",
+  "prompts": {},
+  "humans": {
+    "h_e501752fc60351": {
+      "author": "masonFEI <994085848@qq.com>"
+    }
+  }
+}
