@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.StampedLock;
 
 /**
- * StampedLock = ReentrantReadWriteLock +读的过程中也允许获取写锁接入
+ * StampedLock = ReentrantReadWriteLock +读的过程中也允许获取写锁介入
  *
  * @author feixuanyu
  * @version 1.0.0
