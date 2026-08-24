@@ -39,3 +39,4 @@ Thread的start方法调用后，不一定立马创建线程，需要CPU执行后
 
 # 05-集合的线程安全
 
+CopyOnWriteArrayList （JUC中）解决线程安全问题
