@@ -1,0 +1,19 @@
+src/main/java/com/juc/chapter03/CompletableFutureDemo.java
+  h_e501752fc60351 58
+JUC高并发编程.md
+  h_e501752fc60351 56-73
+  h_e501752fc60351 55
+笔记.md
+  h_e501752fc60351 107-109
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "2eca7a52d35f2df3cfc1a05e689c0b03c71b9a2e",
+  "prompts": {},
+  "humans": {
+    "h_e501752fc60351": {
+      "author": "masonFEI <994085848@qq.com>"
+    }
+  }
+}
