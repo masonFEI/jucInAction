@@ -17,7 +17,6 @@ import java.util.concurrent.FutureTask;
  */
 public class CompletableFutureDemo {
 
-
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         FutureTask<String> futureTask = new FutureTask<>(new MyThread());
         Thread t1 = new Thread(futureTask, "t1");
@@ -56,7 +55,7 @@ class MyThread implements Callable<String> {
     @Override
     // 有返回，可以抛出异常
     public String call() throws Exception {
-        System.out.println("---come in call()");
+        System.out.println(Thread.currentThread().getName() + "---come in call()");
         return "hello Callable";
     }
 }

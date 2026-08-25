@@ -53,3 +53,21 @@ CopyOnWriteArraySet解决对应的线程安全问题,内部是CopyOnWriteArrayLi
 ## HashMap线程不安全
 
 ConcurrentHashMap解决HashMap线程安全问题，采用分段锁机制
+
+# 06-多线程锁
+
+见chapter04/Lock8Demo，注释中即为8种加锁demo场景
+
+## 非公平锁与公平锁、可重入锁、死锁
+
+# 07-Callable接口
+
+Callable创建线程：通过FutureTask包装Callable对象，作为Thread的target
+
+相比于Runnable，Callable，可以有返回值，可以抛出异常
+
+## FutureTask（未来任务）
+
+需要异步执行的任务;FutureTask第二次调用get方法直接返回结果，不会再执行中间步骤了
+
+# 08-JUC强大的辅助类
