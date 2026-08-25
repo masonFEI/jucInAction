@@ -39,4 +39,17 @@ Thread的start方法调用后，不一定立马创建线程，需要CPU执行后
 
 # 05-集合的线程安全
 
-CopyOnWriteArrayList （JUC中）解决线程安全问题
+## ArrayList线程不安全
+
+CopyOnWriteArrayList （JUC中）解决ArrayList的线程安全问题;
+
+- 写时复制技术，在修改时先复制一份数组，在副本上进行修改，修改完将引用指向新数组
+- 支持并发读
+
+## HashSet线程不安全
+
+CopyOnWriteArraySet解决对应的线程安全问题,内部是CopyOnWriteArrayList
+
+## HashMap线程不安全
+
+ConcurrentHashMap解决HashMap线程安全问题，采用分段锁机制
