@@ -75,3 +75,7 @@ Callable创建线程：通过FutureTask包装Callable对象，作为Thread的tar
 1. CountDownLatch（倒计时锁）: 用于控制线程执行顺序；主要方法有`countDown()`和`await()`
 2. CyclicBarrier（循环栅栏）: 让一组线程到达一个屏障时被阻塞，直到最后一个线程到达屏障才继续执行
 3. Semaphore（信号量）: 用于控制同时访问特定资源的线程数量，模拟车库、限流等场景
+
+# 09-ReentrantReadWriteLock
+
+读锁：共享锁； 写锁：独占锁
