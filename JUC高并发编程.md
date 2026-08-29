@@ -81,3 +81,5 @@ Callable创建线程：通过FutureTask包装Callable对象，作为Thread的tar
 读锁：共享锁； 写锁：独占锁
 
 锁降级：写锁降级为读锁
+
+# 10-BlockingQueue阻塞队列
