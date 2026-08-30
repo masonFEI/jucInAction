@@ -83,3 +83,40 @@ Callable创建线程：通过FutureTask包装Callable对象，作为Thread的tar
 锁降级：写锁降级为读锁
 
 # 10-BlockingQueue阻塞队列
+
+# 11-ThreadPool线程池
+
+## 线程池的分类
+
+一池N线程：`Executors.newFixedThreadPool(n)`：固定大小的线程池
+
+一池一线程：`Executors.newSingleThreadExecutor()`：只有一个线程的线程池
+
+可扩容线程池：`Executors.newCachedThreadPool()`：根据需要创建新线程，空闲线程会被回收
+
+线程池不允许使用`Executors`去创建，而是通过`ThreadPoolExecutor`的方式来创建
+
+## 线程池的创建（推荐方式）
+
+使用`ThreadPoolExecutor`自定义创建，
+
+七大参数：
+
+- corePoolSize：核心线程数
+- maximumPoolSize：最大线程数
+- keepAliveTime：空闲线程存活时间
+- unit：时间单位
+- workQueue：任务等待队列
+- threadFactory：线程工厂,用于创建线程
+- handler：拒绝策略，包括四种内置拒绝策略：
+    - `AbortPolicy`：默认策略，抛出 `RejectedExecutionException` 异常
+    - `CallerRunsPolicy`：由调用线程（提交任务的线程）执行该任务
+    - `DiscardPolicy`：直接丢弃任务，不抛异常
+    - `DiscardOldestPolicy`：丢弃队列中最旧的任务，然后重新提交当前任务
+
+工作流程：提交任务 → 核心线程数未满则创建核心线程 → 核心线程满了进入工作队列 → 队列满了则创建非核心线程（直到达到最大线程数）→
+仍超出则执行拒绝策略
+
+# 12 Fork/join
+
+fork将任务拆分；join将任务合并
