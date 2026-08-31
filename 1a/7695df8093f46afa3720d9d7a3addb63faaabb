@@ -1,0 +1,24 @@
+src/main/java/com/juc/chapter03/ThreadPoolExecutorDemo.java
+  s_d7fdc7ef836d00::t_246f1d8fccfbec 56,58
+  s_d7fdc7ef836d00::t_823b47918f3fbc 28,32-33
+  s_d7fdc7ef836d00::t_aa59c8524844b3 10
+  s_d7fdc7ef836d00::t_db3ad89526cbd8 1-9,11-27,29-31,34-55,57,59-82,84-108,110-144
+  s_d7fdc7ef836d00::t_057bbea4bd7666 83
+  s_d7fdc7ef836d00::t_3f1b667f72b88f 109
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "1a7695df8093f46afa3720d9d7a3addb63faaabb",
+  "prompts": {},
+  "sessions": {
+    "s_d7fdc7ef836d00": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "50062afe-6ad7-465e-9f45-327878cb2d23",
+        "model": "MiniMax-M3"
+      },
+      "human_author": "masonFEI <994085848@qq.com>"
+    }
+  }
+}
