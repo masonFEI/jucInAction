@@ -28,6 +28,16 @@ class MyObject {
 public class ReferenceDemo {
 
     public static void main(String[] args) {
+        // 调用弱引用方法，看下object的finalize会不会被执行
+//        weekReference();
+
+        strongReference();
+    }
+
+    /**
+     * 弱引用
+     */
+    private static void weekReference() {
         WeakReference<MyObject> weakReference = new WeakReference<>(new MyObject());
         System.out.println("--------------gc before 内存够用: " + weakReference.get());
         System.gc();
