@@ -33,3 +33,11 @@ ctl表述了两个状态
 执行任务的流程，并且做了终端线程相关的lock操作
 
 Worker 类中tryAcquire为非可重入锁;因为在中断时，也需要对worker进行lock,不能获取代表当前工作线程正在执行任务
+
+## `getTask()`
+
+从工作队列中获取任务
+
+## `processWorkerExit()`
+
+释放工作线程
