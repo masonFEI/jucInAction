@@ -1,0 +1,14 @@
+java线程池源码深度解析.md
+  h_e501752fc60351 37-38,41-42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "0cc1a811e8b33befed70131b22cc406ea0f8667a",
+  "prompts": {},
+  "humans": {
+    "h_e501752fc60351": {
+      "author": "masonFEI <994085848@qq.com>"
+    }
+  }
+}
