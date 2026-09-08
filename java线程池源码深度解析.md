@@ -34,9 +34,12 @@ ctl表述了两个状态
 
 Worker 类中tryAcquire为非可重入锁;因为在中断时，也需要对worker进行lock,不能获取代表当前工作线程正在执行任务
 
+任务addWork后，线程启动，执行worker的run方法；
+
 ## `getTask()`
 
-从工作队列中获取任务
+从工作队列中获取任务;
+核心线程死等，非核心线程限时等;
 
 ## `processWorkerExit()`
 
