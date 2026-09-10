@@ -1,0 +1,29 @@
+笔记.md
+  h_e501752fc60351 34,82-83,126-128,196,253-256,355-356,439-440,444-446,448-450,472-473,475-476,554
+src/main/java/com/juc/chapter03/FutureAPIDemo.java
+  h_e501752fc60351 15-16
+java线程池源码深度解析.md
+  h_e501752fc60351 39,44,47-61
+  s_f3c4303fb28bbe::t_8068fd6d622225 46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "32e7ccecd09594cf71e272cdf0c230961cd6b472",
+  "prompts": {},
+  "humans": {
+    "h_e501752fc60351": {
+      "author": "masonFEI <994085848@qq.com>"
+    }
+  },
+  "sessions": {
+    "s_f3c4303fb28bbe": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0803b-5c4e-73c1-ab8a-4d509391b003",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "masonFEI <994085848@qq.com>"
+    }
+  }
+}
