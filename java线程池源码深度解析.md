@@ -36,11 +36,26 @@ Worker 类中tryAcquire为非可重入锁;因为在中断时，也需要对worke
 
 任务addWork后，线程启动，执行worker的run方法；
 
-## `getTask()`
+## getTask方法
 
 从工作队列中获取任务;
 核心线程死等，非核心线程限时等;
 
-## `processWorkerExit()`
+## processWorkerExit方法
 
 释放工作线程
+
+## shutdown方法
+
+将线程池的状态置为SHUTDOWN
+优雅关闭线程池方法，其中interruptIdleWorkers是关闭空闲的线程（也就是没有持有锁的线程）
+至于工作中的线程与处于等待队列中的任务，则都会执行完；
+这些shutdown后依旧执行的线程，在getTask拿不到任务后，执行processWorkerExit方法关闭线程;
+
+另外shutdown后的线程池，就算工作中的线程数低于核心线程数，不会再添加新的线程了，因为Work类中的addWorker方法会校验线程池状态
+
+## shutdownNow方法
+
+将线程池的状态置为STOP
+工作中的任务也退出中断所有工作线程（interruptWorkers）并清空等待队列（drainQueue）返回未执行的任务列表；
+线程池状态为STOP后，即使核心线程在getTask中也会被中断，最终执行processWorkerExit关闭线程，且不会接收新任务（addWorker会校验状态）

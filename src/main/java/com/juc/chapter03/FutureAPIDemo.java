@@ -12,6 +12,8 @@ import java.util.concurrent.TimeoutException;
 /**
  * FutureAPIDemo
  *
+ * Future对结果的获取不是很友好，只能通过阻塞或轮询的方式得到任务的结果
+ *
  * @author feixuanyu
  * @version 1.0.0
  * @since 2026-04-13 22:05
