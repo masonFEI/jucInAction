@@ -1,0 +1,25 @@
+java线程池源码深度解析.md
+  h_e501752fc60351 62-67
+  s_f3c4303fb28bbe::t_6f5d023ad985dc 61
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "1347bd7c2ad043b70dd43d35422eb3d413576067",
+  "prompts": {},
+  "humans": {
+    "h_e501752fc60351": {
+      "author": "masonFEI <994085848@qq.com>"
+    }
+  },
+  "sessions": {
+    "s_f3c4303fb28bbe": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0803b-5c4e-73c1-ab8a-4d509391b003",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "masonFEI <994085848@qq.com>"
+    }
+  }
+}
