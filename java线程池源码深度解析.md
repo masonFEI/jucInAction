@@ -59,3 +59,9 @@ Worker 类中tryAcquire为非可重入锁;因为在中断时，也需要对worke
 将线程池的状态置为STOP
 工作中的任务也退出中断所有工作线程（interruptWorkers）并清空等待队列（drainQueue）返回未执行的任务列表；
 线程池状态为STOP后，即使核心线程在getTask中也会被中断，最终执行processWorkerExit关闭线程，且不会接收新任务（addWorker会校验状态）
+
+## invokeAll方法
+
+可以限制整体future的执行时长
+在源码中，如果某个future超时，则直接返回整批future，并将在阻塞队列中的future的状态置为true；
+invokeAll方法会将callable封装为futureTask, 在futureTask的run方法中，中断的future就不执行了;
