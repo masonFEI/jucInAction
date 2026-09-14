@@ -62,6 +62,13 @@ Worker 类中tryAcquire为非可重入锁;因为在中断时，也需要对worke
 
 ## invokeAll方法
 
-可以限制整体future的执行时长
-在源码中，如果某个future超时，则直接返回整批future，并将在阻塞队列中的future的状态置为true；
-invokeAll方法会将callable封装为futureTask, 在futureTask的run方法中，中断的future就不执行了;
+可以限制一批futures的整体执行时长;
+在源码中，如果某个future超时，则直接返回整批futures，并将在阻塞队列中的future的状态置为INTERRUPTING；
+因为你invokeAll方法会将callable封装为futureTask, 然后在futureTask的run方法中，INTERRUPTING的future就不执行了;
+
+### 关于FutureTask
+
+FutureTask的get方法，无论是否有超时时间的入参，都会调用到awaitDone方法来阻塞线程
+
+FutureTask类中的waiters字段，是一个等待当前Future执行的结果的链表，链表是使用头插法加入等待结果的线程的；
+在awaitDone方法中，会使用LockSupport.park方法来阻塞调用get方法的线程; 在FutureTask执行完毕后，通过LockSupport.unpark方法来唤醒阻塞线程
