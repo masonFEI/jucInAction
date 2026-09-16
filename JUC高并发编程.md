@@ -4,7 +4,7 @@
 
 - New (新建)
 - Runnable (准备就绪)
-- Blocked (阻塞)
+- Blocked (阻塞),线程争抢synchronized修饰符的同步代码块或同步方法时，未抢到的线程会进入Blocked状态（抢夺monitor失败的线程会进入Blocked状态）
 - Waiting (不见不散)
 - Timed_Waiting (过时不候)
 - Terminated (终结)
