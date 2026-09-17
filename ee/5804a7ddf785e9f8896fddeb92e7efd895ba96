@@ -1,0 +1,25 @@
+JUC高并发编程.md
+  h_e501752fc60351 7-9
+  s_c67feceb9a1dbd::t_509fedfb06b773 23-24,58-59
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "ee5804a7ddf785e9f8896fddeb92e7efd895ba96",
+  "prompts": {},
+  "humans": {
+    "h_e501752fc60351": {
+      "author": "masonFEI <994085848@qq.com>"
+    }
+  },
+  "sessions": {
+    "s_c67feceb9a1dbd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5a702e31-5060-4a9c-af57-273c4e620b7f",
+        "model": "unknown"
+      },
+      "human_author": "masonFEI <994085848@qq.com>"
+    }
+  }
+}
