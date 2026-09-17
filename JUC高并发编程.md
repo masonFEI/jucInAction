@@ -4,7 +4,9 @@
 
 - New (新建)
 - Runnable (准备就绪)
-- Blocked (阻塞),线程争抢synchronized修饰符的同步代码块或同步方法时，未抢到的线程会进入Blocked状态（抢夺monitor失败的线程会进入Blocked状态）
+- Blocked (阻塞),线程等待 monitor 锁 (synchronized 的同步代码块或同步方法)所处的状态。可以是首次进入synchronized
+  失败，也可以是从 `Object.wait()` 被唤醒后重新争抢。
+  只要还没拿到锁，就一直处于 BLOCKED；拿到锁后立刻转为 RUNNABLE
 - Waiting (不见不散)
 - Timed_Waiting (过时不候)
 - Terminated (终结)
@@ -18,7 +20,8 @@
 
 # 02-Lock接口
 
-Thread的start方法调用后，线程立即进入新建状态，由 JVM 在合适的时机创建对应的原生线程调度执行 run() 方法，进入就绪（Runnable）状态等待 CPU 调度。
+Thread的start方法调用后，线程立即进入新建状态，由 JVM 在合适的时机创建对应的原生线程调度执行 run () 方法，
+进入就绪（Runnable）状态等待 CPU 调度。
 
 - Lock可以让等待锁的线程响应中断，而synchronized不可以。 使用synchronized时，等待的线程会一直等待下去，不能够响应中断。
 
@@ -52,7 +55,8 @@ CopyOnWriteArraySet解决对应的线程安全问题,内部是CopyOnWriteArrayLi
 
 ## HashMap线程不安全
 
-ConcurrentHashMap解决HashMap线程安全问题，JDK 8 起采用 CAS + 单个桶粒度的 synchronized + 红黑树（高冲突时链表退化为树）实现；JDK 7 及以前才使用 Segment 分段锁机制。
+ConcurrentHashMap解决HashMap线程安全问题，JDK 8 起采用 CAS + 单个桶粒度的 synchronized + 红黑树（高冲突时链表退化为树）实现；JDK
+7 及以前才使用 Segment 分段锁机制。
 
 # 06-多线程锁
 
