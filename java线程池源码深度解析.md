@@ -67,7 +67,7 @@ Worker 类中tryAcquire为非可重入锁;因为在中断时，也需要对worke
 
 可以限制一批futures的整体执行时长;
 在源码中，如果某个future超时，则直接返回整批futures，并将在阻塞队列中的future的状态置为INTERRUPTING；
-因为你invokeAll方法会将callable封装为futureTask, 然后在futureTask的run方法中，INTERRUPTING的future就不执行了;
+invokeAll方法会将入参的callable任务封装为futureTask, 然后在futureTask的run方法中，INTERRUPTING的future就不执行了;
 
 ### 关于FutureTask
 
