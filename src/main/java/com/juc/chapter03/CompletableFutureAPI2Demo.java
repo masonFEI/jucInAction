@@ -4,8 +4,6 @@
  */
 package com.juc.chapter03;
 
-import com.sun.xml.internal.ws.util.CompletedFuture;
-
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
